@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureAuth - Face Recognition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Next-Gen Security
+            </h1>
+            <p>Unlock with Your Face</p>
+        </div>
+        
+        <div class="tab-container">
+            <button class="tab active" data-tab="register">Face Recognition</button>
+            <button class="tab" data-tab="login">Email & Password</button>
+        </div>
+
+        <div class="content">
+            <!-- Registration Section -->
+            <div id="register-section" class="form-section active">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="camera-container">
+                    <div class="face-circle" id="faceCircle">
+                        <div class="face-target">
+                            <div class="face-target-dot"></div>
+                        </div>
+                    </div>
+                    <video id="video" autoplay muted></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+
+                <div class="instruction-text" id="instructionText">
+                    Position your face in the camera
+                </div>
+
+                <button class="btn btn-primary" id="startCameraBtn">Start Face Recognition</button>
+                <button class="btn btn-secondary hidden" id="captureBtn">Capture Face</button>
+                <button class="btn btn-primary hidden" id="registerBtn">Register Face</button>
+                <button class="btn btn-secondary hidden" id="retakeBtn">Retake Photo</button>
+
+                <div id="registerStatus" class="status hidden"></div>
+            </div>
+
+            <!-- Login Section -->
+            <div id="login-section" class="form-section">
+                <div class="camera-container">
+                    <div class="face-circle" id="loginFaceCircle">
+                        <div class="face-target">
+                            <div class="face-target-dot"></div>
+                        </div>
+                    </div>
+                    <video id="loginVideo" autoplay muted></video>
+                    <canvas id="loginCanvas"></canvas>
+                </div>
+
+                <div class="instruction-text" id="loginInstructionText">
+                    Position your face in the camera to login
+                </div>
+
+                <button class="btn btn-primary" id="startLoginBtn">Start Face Recognition</button>
+                <button class="btn btn-secondary hidden" id="loginCaptureBtn">Scan Face</button>
+                <button class="btn btn-secondary hidden" id="loginRetakeBtn">Try Again</button>
+
+                <div id="loginStatus" class="status hidden"></div>
+
+                <!-- Registered Users List -->
+                <div class="registered-users">
+                    <h3 style="margin-bottom: 15px; color: #374151;">Registered Users</h3>
+                    <div id="usersList"></div>
+                </div>
+            </div>
+
+            <!-- Dashboard Section (shown after successful login) -->
+            <div id="dashboard-section" class="form-section">
+                <div class="dashboard">
+                    <div class="welcome-text">Welcome Back!</div>
+                    <p id="loggedInUser" style="color: #64748b; margin-bottom: 20px;"></p>
+                    <div style="font-size: 4rem; margin: 20px 0;">🎉</div>
+                    <p style="color: #10b981; font-weight: 600;">Login Successful</p>
+                    <button class="btn btn-secondary logout-btn" id="logoutBtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
