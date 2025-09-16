@@ -199,7 +199,7 @@ body {
     height: 8px;
     background: #667eea;
     border-radius: 50%;
-    animation: blink 1.5s infinite;
+    
 }
 
 .scanning-animation {
@@ -209,7 +209,7 @@ body {
     border: 2px solid transparent;
     border-top-color: #10b981;
     border-radius: 50%;
-    animation: scan 2s linear infinite;
+    
 }
 
 .camera-instruction {

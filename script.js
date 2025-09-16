@@ -672,6 +672,7 @@ class EmailService {
         
         If you didn't request this, please ignore this email.
         `);
+
         
         
         return { success: true, messageId: 'msg_' + Date.now() };
